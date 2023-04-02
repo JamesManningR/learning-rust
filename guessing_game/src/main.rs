@@ -9,8 +9,6 @@ fn main() {
 
     let secret_number = rand::thread_rng().gen_range(1..=100);
 
-    println!("Secret number: {secret_number}");
-
     loop {
         println!("Please input your guess:");
 
@@ -25,14 +23,19 @@ fn main() {
         // Create a new variable called guess (Shadowing)
         // Trim the originals whitespace
         // Parse into a number
+        // The .parse function returns a 'Result' type.
+        // A result type returns the value or Ok if it's valid
+        // Or Err if it's invalid.
+        // Using a match expression allows us to
         let guess: u32 = match guess.trim().parse() {
             Ok(num) => num,
+            // Go to the next itteration of the loop, start from the begining
             Err(_) => continue,
         };
 
         println!("You guessed: {guess}"); // Print out the guess, crab pincers '{}' open an expression
 
-        // Match uses 'arms' to enumerate states
+        // Match uses 'arms' to enumerate possible states. .cmp returns an Ordering type
         match guess.cmp(&secret_number) {
             // In this case we compare guess with secret_number (&... means reference secret_number)
             Ordering::Less => println!("Too Small"),
