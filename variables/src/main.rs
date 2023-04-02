@@ -1,9 +1,9 @@
 fn main() {
-    // Setting up x without the mut keyword
-    let x = 5;
+    // Adding mut now will allow the variable to be re-assigned a value
+    let mut x = 5;
     println!("The value of x is: {x}");
 
-    // Re-assigning will produce an error
+    // This will no longer produce an error
     x = 6;
     println!("The value of x is: {x}");
 }
