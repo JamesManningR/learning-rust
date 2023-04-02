@@ -1,7 +1,7 @@
 // Import the io module from the 'std' lib
 use rand::Rng;
-use std::io;
 use std::cmp::Ordering;
+use std::io;
 
 // This is a special function which runs at the start of the program
 fn main() {
@@ -22,20 +22,25 @@ fn main() {
             .read_line(&mut guess) // Read the line in the terminal
             .expect("Failed to read line"); // Handle a situation where the function fails and output an error messege of 'failed to read line'
 
-        let guess: u32 = guess // Create a new variable called guess (Shadowing)
-            .trim() // Trim the originals whitespace
-            .parse() // Parse into a number
-            .expect("Please type a number"); // If it's not a number, then it's invalid
+        // Create a new variable called guess (Shadowing)
+        // Trim the originals whitespace
+        // Parse into a number
+        let guess: u32 = match guess.trim().parse() {
+            Ok(num) => num,
+            Err(_) => continue,
+        };
 
         println!("You guessed: {guess}"); // Print out the guess, crab pincers '{}' open an expression
 
+        // Match uses 'arms' to enumerate states
         match guess.cmp(&secret_number) {
+            // In this case we compare guess with secret_number (&... means reference secret_number)
             Ordering::Less => println!("Too Small"),
             Ordering::Greater => println!("Too Large"),
             Ordering::Equal => {
-                println!("Just Right")
-                break;
-            },
+                println!("Just Right");
+                break; // If the guess is right, we want to break the loop and end the game
+            }
         }
     }
 }
