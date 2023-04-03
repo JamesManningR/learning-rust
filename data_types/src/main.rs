@@ -46,4 +46,6 @@ fn main() {
     let arr = [1, 2, 3, 4, 5]; // Arrays are fixed length
     let first = arr[0]; // Accessing an array element
     let second = arr[1]; // Accessing an array element
+    let typedArr: [i32; 5] = [1, 2, 3, 4, 5]; // Arrays can be typed
+    let allZeros = [0; 5]; // Arrays can be initialized with a value
 }
