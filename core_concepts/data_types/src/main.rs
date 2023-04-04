@@ -48,28 +48,4 @@ fn main() {
     let second = arr[1]; // Accessing an array element
     let typed_arr: [i32; 5] = [1, 2, 3, 4, 5]; // Arrays can be typed
     let all_zeros = [0; 5]; // Arrays can be initialized with a value
-
-    // Function
-    your_first_non_main_function();
-    function_with_param(11);
-    function_with_param(5);
-    function_with_multiple_params(21, 'm')
-}
-
-fn your_first_non_main_function() {
-    println!("Hello, world!");
-}
-
-// Function params must be typed
-fn function_with_param(x: i32) {
-    println!("The value of x is {x}");
-}
-
-// Function params must be typed
-fn function_with_multiple_params(value: i32, label: char) {
-    println!("{label}: {value}");
-}
-
-fn expression(num: i32) -> i32 {
-    num * num
 }
