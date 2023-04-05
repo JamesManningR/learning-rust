@@ -48,4 +48,25 @@ fn main() {
     let second = arr[1]; // Accessing an array element
     let typed_arr: [i32; 5] = [1, 2, 3, 4, 5]; // Arrays can be typed
     let all_zeros = [0; 5]; // Arrays can be initialized with a value
+
+    // Strings
+    // There are two types of strings (that I know of rn)
+    // a string literal
+    let mut string_literal = "An example string";
+    string_literal = "a";
+    // and a String
+    let a_string = String::from("Another Example");
+    // Okay... so... what?!?!
+
+    // A string literal is immutable... kind of, 
+    // a string literal's contents must be known at runtime,
+    // so if the compiler can't figure this out at compilation time
+    // then a string literal wont work
+    
+    // where as a Strings are mutable, but are stored on the heap.
+    // Strings are references to the string stored in the heap, it contains: 
+    // a pointer (ptr)
+    // a length (len)
+    // a capacity 
+    // Where as string literals are 
 }
