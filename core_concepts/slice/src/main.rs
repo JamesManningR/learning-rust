@@ -4,11 +4,20 @@
 // A slice is a reference so it does not have ownership
 
 fn main() {
-    let s = String::from("Hello world");
-
+    let mut s = String::from("Hello world");
+    // Here's how we create a slice
+    // A slice references the s variable
+    let hello = &s[0..5]; // Remember, you can't mutate s now, as it's immutable
+    let _world = &s[6..11];
+    println!("{hello}");
+    
+    println!("{hello}");
+    
     let word = first_word(&s);
 
     println!("The first word of {s} is {word} characters long");
+
+
 }
 
 // Finds the first word in a string besed on the first
