@@ -2,7 +2,7 @@ fn main() {
     let s = String::from("Hello");
 
     print_my_string(s);
-    
+
     // println!("{s}");
     // This would cause an error since the print_my_string(s) function
     // takes ownership of the s variable.
