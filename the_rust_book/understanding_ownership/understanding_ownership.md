@@ -79,3 +79,10 @@ let len = calculate_length(&x);  // borrow, don't move
 > - A single mutable reference `&mut`
 >
 > But never both simultaneously. Violating these rules will result in a compile error.
+
+## Slices
+
+Slices allow you to reference a contiguous sequence of elements in a collection,
+rather that the whole collection.
+
+Since it is a reference, it does not have ownership
