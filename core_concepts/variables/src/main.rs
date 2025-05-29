@@ -13,7 +13,7 @@ fn main() {
 
     let x = x + 6;
     println!("The value of x is: {x}");
-    
+
     // Example of shadowing
     let x = "Pringles";
     println!("The value of x is: {x}");
@@ -21,12 +21,11 @@ fn main() {
     // Example of shadowing
     let x = 12;
     println!("The value of x is: {x}");
-    
+
     {
         let x = "Shadowing in a scope?";
         println!("The value of x in this scope is: {x}");
     }
 
     println!("Oh look, now back in this scope: {x}");
-
 }

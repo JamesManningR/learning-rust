@@ -15,4 +15,3 @@ by hte no starch press
 4. Understanding Ownership [understanding_ownership](./unerstanding_ownership/)
     1. [ownership](./unerstanding_ownership/ownership/)
     1. [slice](./unerstanding_ownership/slice/)
-
