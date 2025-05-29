@@ -197,11 +197,26 @@ if expressions.
 match (id + 1).cmp(&last_played_line_id) {
     std::cmp::Ordering::Less => Line::styled(line, ui.theme.lyrics_played()),
     std::cmp::Ordering::Equal => Line::styled(line, ui.theme.lyrics_playing()),
-    _ => Line::raw(line),
+    std::cmp::Ordering::Greater => Line::raw(line),
 ```
 
 Note that matches are expressions, so they return a value at the end of their
 execution. The different branches of each case are known as *arms*
+
+You can also use the `_` case as a fallback
+
+```rs
+match number {
+    // Match a single value
+    1 => println!("One!"),
+    // Match several values
+    2 | 3 | 5 | 7 | 11 => println!("This is a prime"),
+    // Match an inclusive range
+    13..=19 => println!("A teen"),
+    // Handle the rest of cases
+    _ => println!("Ain't special"),
+}
+```
 
 ### Loops
 
