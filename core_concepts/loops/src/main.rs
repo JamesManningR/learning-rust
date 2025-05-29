@@ -64,14 +64,14 @@ fn loops() {
 
 fn while_loops() {
     // While loops are essentially loops with condition checks at the start of a loop
-    // This means that if the condition is met 
+    // This means that if the condition is met
     let mut number = 3;
 
     while number != 0 {
         println!("before: {number}");
-        
+
         number -= 1;
-        
+
         println!("after: {number}");
     }
 
@@ -80,12 +80,12 @@ fn while_loops() {
 
     while number != 1 {
         println!("before: {number}");
-        
+
         number -= 2;
         // Notice that it doesn't matter if the condition is true mid way through the function
         println!("mid: {number}");
         number += 1;
-        
+
         println!("after: {number}");
     }
 }
@@ -109,3 +109,4 @@ fn for_loops() {
         println!("{num}")
     }
 }
+
