@@ -99,8 +99,8 @@ fn for_loops() {
     }
 
     // We can also loop over a range using the range util
-    // Not that this is not inclusive
-    for num in (1..4) {
+    // Note that this is not inclusive
+    for num in 1..4 {
         println!("{num}")
     }
 
