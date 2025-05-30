@@ -128,3 +128,46 @@ struct SongRef<'a> {
     duration: u32,
 }
 ```
+
+## Tuples Structs
+
+```rust
+struct Color(i32, i32, i32);
+struct Point(i32, i32, i32);
+
+fn main() {
+    let black = Color(0, 0, 0);
+    let origin = Point(0, 0, 0);
+
+    let black2 = origin
+}
+```
+
+These typles are the same stucture but they are different types
+A function taking in a Color would have to be a Color and cannot be a type of
+point.
+
+### Tuple Structs vs Tuples
+
+Tuple structs are named types that behave like tuples.
+**Key differences**
+
+- Destructuring
+    a. Tuples use let (x, y) = tuple,
+    b. tuple structs require the type name let Point(x, y) = point
+- Type identity - Point(1, 2) and (1, 2) are different types
+- Methods- Tuple structs can have custom methods and trait implementations
+
+## No Field Structs
+
+Structs can be created without any values
+
+```rust
+struct AlwaysEqual;
+
+fn main() {
+    let subject = AlwaysEqual;
+}
+```
+
+Why will be revealed later when learning about *traits*

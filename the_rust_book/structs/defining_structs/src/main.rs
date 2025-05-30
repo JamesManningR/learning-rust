@@ -4,6 +4,8 @@ struct Song {
     duration_in_seconds: u16,
 }
 
+struct Color(i32, i32, i32);
+
 fn build_song(is_released: bool, name: String, duration_in_seconds: u16) -> Song {
     Song {
         is_released,
@@ -46,4 +48,9 @@ fn main() {
 
     println!("{}", my_song.duration_in_seconds); // This works because it is a copied type and so
     // it copied and not moved
+
+    let black = Color(0, 0, 0);
+    let Color(r, g, b) = black;
+    // let (r, g, b) = point;  // ❌ Error! Must use Color(r, g, b);
+    println!("red:{} green:{} blue:{}", r, g, b)
 }
