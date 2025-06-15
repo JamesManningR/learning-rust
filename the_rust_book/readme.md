@@ -13,3 +13,4 @@
     1. [ownership](./unerstanding_ownership/ownership/)
     2. [slice](./unerstanding_ownership/slice/)
 5. Structs [structs](./structs/structs.md)
+6. Enums [Enums](./enums/enums.md)

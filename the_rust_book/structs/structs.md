@@ -171,3 +171,53 @@ fn main() {
 ```
 
 Why will be revealed later when learning about *traits*
+
+## Functions in structs
+
+We can add function implementations to structs by using the impl keyword
+
+```rust
+impl Rectangle {
+    fn area(&self) -> u32 {
+        self.width * self.height
+    }
+}
+```
+
+As you can see, we can pass the first argument as `&self`, this is the same as writing `self: &self`
+
+We can make this mutable by using `&mut self`
+
+When passing a further argument, the call signature can omit the `self`
+
+```rust
+impl Rectangle {
+    fn set_height(&mut self, height: u32) {
+        self.height = height
+    }
+}
+
+
+let mut rect = Rectangle {
+    width: 30,
+    height: 50,
+};
+
+rect.set_width(55);
+```
+
+Lastly, we can create associate functions. These are called differently and are usually
+used as initialisers. Thing of the `String::from` function for example
+
+```rust
+impl Rectangle {
+    fn square(size: u32) -> Self {
+        Self {
+            width: size,
+            height: size,
+        }
+    }
+}
+
+let square = Rectangle::square(24);
+```
