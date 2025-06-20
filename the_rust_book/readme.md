@@ -1,5 +1,11 @@
 # Learning rust
 
+## Quickstart
+
+```bash
+rustup doc --book
+```
+
 ## Index
 
 1. Hello World [hello_world](./hello_world/)
