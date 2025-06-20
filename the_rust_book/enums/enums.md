@@ -4,8 +4,8 @@ Enums (Enumerations) are a way to define a finite list of possible variants.
 This allows the compiler to use a minimum representation of the variant, while still
 keeping the developer experience
 
-Enums are interesting in rust. They not only represent an enumeration of a value like in
-typescript. They can also hold structures in themselves.
+Enums are interesting in rust. They not only represent an enumeration of a value
+like in typescript. They can also hold structures in themselves.
 
 ```rust
 enum IpAddrKind {
@@ -73,3 +73,71 @@ The only way to then get `T` to interact with `Option<T>` is by handling the cas
 where `T` is nullish. Forcing you to handle the case where the value is not
 the case where the value is not defined.
 
+## Match
+
+The match expression is rusts enhanced version of a switch statement.
+
+There are a few key differences though.
+
+1. All possible values must be handled (Exhaustive)
+2. Advanced pattern matching, eg. Range (1..=5) , Guards (if x > 3), Union (1 | 2)
+3. Switch is an expression, so it returns a value
+
+This doesn't mean that match expressions can't be used as statements.
+They can also be used in that way
+
+```rust
+match x {
+    1 => println!("one"),
+    2 => println!("two"),
+};
+```
+
+We can handle the `other` non explicit cases using 1 of 2 options.
+
+1. `other` - Binds the value for use later
+2. `_` - just matches any other case but doesn't pass on the value
+
+The idea is that if you use `other` you likely want to use the values. If you don't
+care what the value is, and you are just handling the case, then use `_`
+
+```rust
+let x = 10;
+
+match x {
+    1 => println!("One"),
+    2 => println!("Two"),
+    other => println!("Got: {}", other), // Got 10
+}
+
+match x {
+    1 => println!("One"),
+    2 => println!("Two"),
+    _ => println!("Something else"), // Something else
+}
+```
+
+## If Let
+
+For some situations, it may be more terse to use the If Let/Let Else pattern.
+
+Let's take for example this code
+
+```rust
+let config_max = Some(3u8); // Comes from an Option
+match config_max {
+    Some(max) => println!("The maximum is configured to be {max}"),  // if it's defined
+    _ => (), // Do nothing
+}
+```
+
+We can re-write this in a shorter way
+
+```rust
+let config_max = Some(3u8); // Comes from an Option
+if let Some(max) = config_max {
+    println!("The maximum is configured to be {max}");
+}
+```
+
+Now we have the same thing, just written in one fewer line
